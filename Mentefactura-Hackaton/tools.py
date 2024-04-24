@@ -1,7 +1,14 @@
 import pandas as pd 
 
-def load_data(path) -> None:
-    df = pd.read_excel(path)
+
+class candidato():
+
+    def __init__(self, path) -> None:
+        self.df = pd.read_csv(path)
+
+    
+
+
 
 
 
