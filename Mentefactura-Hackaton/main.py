@@ -60,6 +60,26 @@ class candidato():
        
         return PB_df
 
+    def propaganda_percentaje(self):
+        PP_df = pd.DataFrame()
+
+        PP_df["tweet"] = self.df["tweetText"].to_list()
+        PP_df["Fecha"] = self.df[ "createdAt"].to_list()
+
+        texto_original = self.df['tweetText'].to_list()
+        texts = translateTxtArray(texto_original, self.idioma_destino)
+
+        prop_detector = pipeline(model="cstnz/PropagandaDetection")
+        scores = []
+     
+        for text in texts:        
+            res = prop_detector(text)
+            scores.append(res[0]["score"])
+        
+        PP_df["Porcentaje Propaganda"] = scores
+       
+        return PP_df
+
 
 if __name__ == "__main__":
 
@@ -67,10 +87,10 @@ if __name__ == "__main__":
     new_path = sys_path.replace("\\", "/")
 
 
-    path ="/Mentefactura-Hackaton/data/TwExtract-XochitlGalvez-20240424_133659.csv" 
+    path ="/Mentefactura-Hackaton/data/TwExtract-AlvarezMaynez-20240424_130940.csv" 
 
     handler = candidato(new_path + path)
 
-    PB_df = handler.political_bias()
-    PB_df.to_csv("PoliticalBiasXochitl.csv")
+    PB_df = handler.propaganda_percentaje()
+    PB_df.to_csv("PropagandaPorcentajeMaynez.csv")
     breakpoint()
