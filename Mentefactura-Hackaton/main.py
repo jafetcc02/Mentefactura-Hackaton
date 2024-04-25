@@ -3,7 +3,6 @@ from tools import extra_clean, traducir, translateTxtArray
 from transformers import AutoTokenizer, AutoModelForSequenceClassification, pipeline
 import torch
 import os 
-import tqdm
 import time
 
 class candidato():
@@ -60,7 +59,7 @@ class candidato():
        
         return PB_df
 
-    def propaganda_percentaje(self):
+    def propaganda_percentage(self):
         PP_df = pd.DataFrame()
 
         PP_df["tweet"] = self.df["tweetText"].to_list()
@@ -91,6 +90,6 @@ if __name__ == "__main__":
 
     handler = candidato(new_path + path)
 
-    PB_df = handler.propaganda_percentaje()
+    PB_df = handler.propaganda_percentage()
     PB_df.to_csv("PropagandaPorcentajeMaynez.csv")
     breakpoint()

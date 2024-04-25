@@ -1,1 +1,14 @@
-pandas 
+pandas==1.2.4
+transformers==4.40.1
+torch==2.2.1
+os
+time 
+googletrans==4.0.0rc1
+keras 
+matplotlib
+collections
+nltk 
+numpy 
+spacy
+gensim
+scikit-learn
