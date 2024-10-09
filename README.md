@@ -27,6 +27,7 @@ pip install git+https://github.com/jafetcc02/Mentefactura-Hackaton
 
 The libraries can be installed with the following command 
 
+
 ```bash
 pip install -r /path/to/requirements.txt
 ```
