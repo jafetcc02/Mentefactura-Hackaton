@@ -7,7 +7,7 @@
 
 AI Python package for analysis of mexican political candidates
 
-## Prerequisities
+## Prerequisites
 
 Before you begin, ensure you have met the following requirements:
 
